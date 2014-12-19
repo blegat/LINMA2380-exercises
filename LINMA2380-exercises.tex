@@ -1,0 +1,60 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{verbatim}
+
+\usepackage{ifthen}
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{tikzpagenodes}
+\usetikzlibrary{calc, arrows}
+
+% greyarrow has much better handling of page breaks, see the link on stackoverflow for more info
+\def\SolStyle{greyarrow}
+\ifthenelse{\isundefined{\SolStyle}}{\def\SolStyle{greyarrow}}{}
+\ifthenelse{\equal{\SolStyle}{greyarrow}}
+{
+  \input{greyarrow.tex}
+}
+{
+  \input{boxes.tex}
+}
+
+
+\ifthenelse{\isundefined{\Sol}}{\def\Sol{true}}{}
+\ifthenelse{\equal{\Sol}{false}}
+{
+  \newenvironment{solution}{\expandafter\comment}{\expandafter\endcomment}
+}
+{
+  \newmdenv[style=mysquare]{solution}
+}
+
+
+\DeclareMathOperator{\newdiff}{d} % use \dif instead
+\newcommand{\dif}{\newdiff\!}
+
+\usepackage{url}
+\newcommand{\nosolution}
+{This exercise does not yet have a solution.
+You are encouraged to submit one to the following address
+\begin{center}
+  \url{https://github.com/blegat/LINMA2380-exercises}
+\end{center}
+or by mail to \url{benoit.legat@gmail.com}.}
+
+\title{Solutions of the exercises of Matrix Theory}
+\author{Benoît Legat}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\include{ch1}
+
+\end{document}
