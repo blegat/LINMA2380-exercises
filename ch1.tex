@@ -462,16 +462,156 @@ Prove that these matrices commute.
 \end{solution}
 
 \subsection*{1.19}
-\nosolution
+\begin{solution}
+  We first notice that
+  \begin{align*}
+    \det\begin{pmatrix}
+      \lambda & -1 &\\
+      & \ddots & \ddots\\
+      & & \lambda & -1\\
+      & & & \lambda
+    \end{pmatrix}
+    & =
+    \lambda
+    \det\begin{pmatrix}
+      \lambda & -1 &\\
+              & \ddots & \ddots\\
+              & & \lambda & -1\\
+              & & & \lambda
+    \end{pmatrix}\\
+    & = \lambda^n
+  \end{align*}
+  where $n$ is the dimension of the original matrix.
+  Using the cofactor technique on the last column recursively,
+  \begin{align*}
+    \det(\lambda I_n - C) & = (\lambda + a_{n-1})\lambda^{n-1}
+    + \det(\lambda I_{n-1} - C_{n-1} - \lambda e_{n-1}e_{n-1}^T)\\
+    & =
+    \lambda^n + a_{n-1}\lambda^{n-1}
+    + a_{n-2} \lambda^{n-1}
+    + \det(\lambda I_{n-2} - C_{n-2} - \lambda e_{n-2}e_{n-2}^T)\\
+    & = \lambda^n + a_{n-1}\lambda^{n-1} + \cdots + a_0.
+  \end{align*}
+\end{solution}
 
 \subsection*{1.20}
-\nosolution
+\begin{solution}
+  Using the cofactor technique on the last column then on the last line,
+  \begin{align*}
+    \det(J_n)
+    & = a_n\det(J_{n-1}) - b_n
+    \det
+    \begin{pmatrix}
+      J_{n-2} &
+      \begin{pmatrix}
+        0\\b_{n-1}
+      \end{pmatrix}\\
+      0 & c_n
+    \end{pmatrix}\\
+    & = a_n\det(J_{n-1}) - b_n c_n \det(J_{n-2}).
+  \end{align*}
+\end{solution}
 
 \subsection*{1.21}
 \nosolution
 
 \subsection*{1.22}
-\nosolution
+\begin{solution}
+  \begin{itemize}
+    \item
+      Since $A_{12}$ must be square,
+      $A_{11}$ and $A_{22}$ must have the same dimension.
+      Let $p \times p$ be their dimension.
+      Let $\mathbf{i}_p = (1, \ldots, p)$.
+      If $\mathbf{j}_p \neq (1, \ldots, p)$,
+      there will be a $k \in \{1, \ldots, p\}$ such that
+      $k$ is in $\mathbf{j}_p^c$.
+      Therefore,
+      \(
+      A^c
+      \begin{pmatrix}
+        \mathbf{i}_n\\
+        \mathbf{j}_n
+      \end{pmatrix}
+      \)
+      will have a zero column and a determinant of 0.
+
+      Therefore, the sum over all $\mathbf{j}_c$
+      is equal to
+      \begin{align*}
+        A
+        \begin{pmatrix}
+          (1, \ldots, p)\\
+          (1, \ldots, p)
+        \end{pmatrix}
+        A^c
+        \begin{pmatrix}
+          (1, \ldots, p)\\
+          (1, \ldots, p)
+        \end{pmatrix}
+        & = A
+        \begin{pmatrix}
+          (1, \ldots, p)\\
+          (1, \ldots, p)
+        \end{pmatrix}
+        (-1)^{2\frac{p(p+1)}{2}}
+        A
+        \begin{pmatrix}
+          (p+1, \ldots, 2p)\\
+          (p+1, \ldots, 2p)
+        \end{pmatrix}\\
+        & = (-1)^{p(p+1)}\det(A_{11}) \det(A_{22})\\
+        & = \det(A_{11}) \det(A_{22})
+      \end{align*}
+      since either $p$ or $p+1$ is even.
+    \item
+      Let $\mathbf{i}_p = (1, \ldots, p)$.
+      If $\mathbf{j}_p \neq (n-p+1, \ldots, n)$,
+      there will be a $k \in \{n-p+1, \ldots, n\}$ such that
+      $k$ is in $\mathbf{j}_p^c$.
+      Therefore,
+      \(
+      A^c
+      \begin{pmatrix}
+        \mathbf{i}_n\\
+        \mathbf{j}_n
+      \end{pmatrix}
+      \)
+      will have a zero column and a determinant of 0.
+
+      Therefore, the sum over all $\mathbf{j}_c$
+      is equal to
+      \begin{align*}
+        \det(A) & =
+        A
+        \begin{pmatrix}
+          (1, \ldots, p)\\
+          (n-p+1, \ldots, n)
+        \end{pmatrix}
+        A^c
+        \begin{pmatrix}
+          (1, \ldots, p)\\
+          (n-p+1, \ldots, n)
+        \end{pmatrix}\\
+        & = A
+        \begin{pmatrix}
+          (1, \ldots, p)\\
+          (n-p+1, \ldots, n)
+        \end{pmatrix}
+        (-1)^{2\frac{p(p+1)}{2} + p(n-p)}
+        A
+        \begin{pmatrix}
+          (n-p+1, \ldots, n)\\
+          (1, \ldots, p)
+        \end{pmatrix}\\
+        & = (-1)^{p(n-p)}\det(A_{12}) \det(A_{21})\\
+        & = (-1)^{p(n+1)}\det(A_{11}) \det(A_{22})
+      \end{align*}
+      since $p(n-p)$ has the same parity than $p(n+1)$.
+      If $p$ is even, this is obvious.
+      If $p$ is odd, then $n-p$ has the same parity than $n+1$ since $p$ and $1$ are both odd.
+  \end{itemize}
+\end{solution}
 
 \subsection*{1.23}
 \nosolution
