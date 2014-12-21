@@ -362,10 +362,104 @@ Prove that these matrices commute.
 \end{solution}
 
 \subsection*{1.17}
-\nosolution
+\begin{solution}
+  Let's prove the equivalent property
+  \[
+    \det\begin{pmatrix}
+      A^T & -I_n\\
+      0 & B^T
+    \end{pmatrix} =
+    \det\begin{pmatrix}
+      A^T & -I_n\\
+      B^TA^T & 0
+    \end{pmatrix}
+  \]
+  to work on the columns since the properties are expressed
+  on the columns.
+  Let $C$ be the matrix of the LHS and
+  $D$ be the matrix of the RHS.
+  We can see that
+  \begin{align*}
+    d_{i:} &= c_{i:} & i & = 1, \ldots, n\\
+    d_{i:} &= c_{i:} + \sum_{k=1}^n b_{k(i-n)} c_{k:} & i & = n+1, \ldots, 2n
+  \end{align*}
+  since
+  \begin{align*}
+    \begin{pmatrix}
+      B^TA^T & 0
+    \end{pmatrix}
+    & =
+    \begin{pmatrix}
+      0 & B^T
+    \end{pmatrix}
+    +
+    \begin{pmatrix}
+      B^TA^T & -B^T
+    \end{pmatrix}\\
+    & =
+    \begin{pmatrix}
+      0 & B^T
+    \end{pmatrix}
+    +
+    B^T
+    \begin{pmatrix}
+      A^T & -I_n
+    \end{pmatrix}.
+  \end{align*}
+  This gives us what we want using properties 3. and 8.
+\end{solution}
 
 \subsection*{1.18}
-\nosolution
+\begin{solution}
+  We know that for $C \in \mathcal{R}^{2n}$
+  \[ \det(C) = \sum_{\mathbf{j}} (-1)^{t(\mathbf{j})} c_{1j_1} \cdots c_{(2n)j_{2n}}. \]
+  For
+  \[
+    C = \begin{pmatrix}
+      A & 0\\
+      -I_n & B
+    \end{pmatrix},
+  \]
+  we see that if $j_i > n$ for $i \leq n$, $c_{ij_i} = 0$.
+  Therefore the first $n$ elements of $\mathbf{j}$ must be a permutation of $\{1, \ldots, n\}$
+  for the product $c_{1j_1} \cdots c_{(2n)j_{2n}}$ to be non-zero.
+  The last $n$ elements of $\mathcal{j}$ are therefore a permutation of $\{n+1, \ldots, 2n\}$.
+  Consequently, we have (defining $J$ as the set of such permutations)
+  \begin{align*}
+    \det(C)
+    & = \sum_{\mathbf{j} \in J} (-1)^{t(\mathbf{j})} c_{1j_1} \cdots c_{nj_n} c_{(n+1)j_{n+1}} c_{(2n)j_{2n}}\\
+    & = \sum_{\mathbf{j} \in J} (-1)^{t(j_1, \ldots, j_n)} a_{1j_1} \cdots a_{nj_n} (-1)^{t(j_{n+1}, \ldots, j_{2n})} b_{1(j_{n+1}-n)} b_{n(j_{2n}-n)}\\
+    & = \left(\sum_{\mathbf{j}} (-1)^{t(\mathbf{j})} a_{1j_1} \cdots a_{nj_n}\right)
+    \left(\sum_{\mathbf{j}} (-1)^{t(\mathbf{j})} b_{1(j_1)} b_{n(j_n)}\right)\\
+    & = \det(A) \det(B).
+  \end{align*}
+
+  For
+  \[
+    D = \det\begin{pmatrix}
+      A & AB\\
+      -I_n & 0
+    \end{pmatrix},
+  \]
+  we see using the same reasoning that we can restrict ourself to
+  $\mathbf{j} = \mathbf{j}_1 \times \mathbf{j}_2$
+  where $\mathbf{j}_1$ is a permutation of $\{n+1, \ldots, 2n\}$
+  and $\mathbf{j}_2$ is a permutation of $\{1, \ldots, n\}$.
+  This time, we have $t(\mathbf{j}) = t(\mathbf{j_1}) + t(\mathbf{j_2}) + n^2$ so
+  (defining $J$ as expected, noting $AB = [x_{ij}]_{i,j=1}^{n,n}$)
+  \begin{align*}
+    \det(D)
+    & = \sum_{\mathbf{j} \in J} (-1)^{t(\mathbf{j})} d_{1j_1} \cdots d_{nj_n} d_{(n+1)j_{n+1}} d_{(2n)j_{2n}}\\
+    & = \sum_{\mathbf{j} \in J} (-1)^{t(\mathbf{j}_1)} x_{1(j_1-n)} \cdots x_{n(j_n-n)} (-1)^{t(\mathbf{j}_2)+n^2} (-\delta_{1j_{n+1})}) \cdots (-\delta_{nj_{2n})})\\
+    & = \left(\sum_{\mathbf{j}} (-1)^{t(\mathbf{j})} x_{1j_1} \cdots x_{nj_n}\right)
+    (-1)^{n^2}\left(\sum_{\mathbf{j}} (-1)^{t(\mathbf{j})} (-\delta_{1(j_1)}) \cdots (-\delta_{n(j_n)})\right)\\
+    & = \det(AB) (-1)^{n^2}\det(-I_n)\\
+    & = \det(AB) (-1)^{n^2+n}\\
+    & = \det(AB) (-1)^{n(n+1)}\\
+    & = \det(AB)
+  \end{align*}
+  since either $n$ or $n+1$ is even.
+\end{solution}
 
 \subsection*{1.19}
 \nosolution

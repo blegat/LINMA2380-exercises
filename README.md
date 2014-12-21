@@ -13,7 +13,7 @@ In order to do that, clone the repo and run
 [`smartcp`](https://github.com/blegat/smartcp)
 but is not mandatory.
 
-If you do not knwo Git,
+If you do not know Git,
 read the part *Utilisation linéaire de Git* of
 [this tutorial](http://sites.uclouvain.be/SystInfo/notes/Outils/html/git.html)
 written by Benoît Legat.
