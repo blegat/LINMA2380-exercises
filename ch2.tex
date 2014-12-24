@@ -1,0 +1,61 @@
+\section{Linear system}
+\subsection*{2.1}
+\nosolution
+
+\subsection*{2.2}
+\begin{solution}
+  \begin{itemize}
+    \item If $x \in \Ker A$, then $Ax = 0$
+      which also means that $RAX = R0 = 0$ so $X \in \Ker(RA)$.
+    \item If $y \in \Ima(AR)$, then there is a $x$
+      such that $ARx = y$
+      which also means that there is a $x'$ such that
+      $Ax' = y$ since we can just take $x' = Rx$.
+      So $y \in \Ima A$.
+  \end{itemize}
+\end{solution}
+
+\subsection*{2.3}
+\begin{solution}
+  Let's suppose by contradiction that there are 2 ways
+  to do this
+  \begin{align}
+    \label{eq:2.3.1}
+    \mathbf{x} & = \sum_{i=1}^k \alpha_i \mathbf{a}_i\\
+    \label{eq:2.3.2}
+               & = \sum_{i=1}^k \beta_i \mathbf{a}_i
+  \end{align}
+  which $\beta_i \neq \alpha_i$ for at least one $i \in \{0, \ldots, k\}$.
+  $\eqref{2.3.2}-\eqref{2.3.1}$ gives
+  \[
+    0 = \sum_{i=1}^k (\beta_i-\alpha_i) \mathbf{a}_i.
+  \]
+  by hypothesis, there is a $i$ such that $\beta_i-\alpha_i \neq 0$
+  which is a contradiction with the linear independence of the $\mathbf{a}_i$.
+\end{solution}
+
+\subsection*{2.4}
+\begin{solution}
+  Let's suppose by conradiction that there are 2
+  basis $a_1, \ldots, a_n$ and $b_1, \ldots, b_m$ with $n < m$.
+
+  Let's just remember that $a_1, \ldots, a_n$ is spanning
+  and $b_1, \ldots, b_m$ are linearly independent.
+
+  We have therefore that
+  \[ b_1 = \alpha_1 a_1 + \ldots + \alpha_n a_n\]
+  with at least one $\alpha_i \neq 0$ since $b_1 \neq 0$.
+  Wlog, let's say that $\alpha_1 \neq 0$.
+  Therefore
+  \[ a_1 = \frac{1}{\alpha_1}b_1 + \frac{\alpha_2}{\alpha_1} a_2 + \ldots + \frac{\alpha_n}{\alpha_1} a_n\]
+  so $(b_1, a_2, \ldots, a_n)$ is spanning.
+
+  We now have
+  \[ b_2 = \beta_1 b_1 + \beta_2 a_2 + \ldots + \beta_n a_n\]
+  if $\beta_2 = \cdots = \beta_n = 0$, $b_1, b_2$ are not linearly independent.
+  Wlog, let's say that $\beta_2 \neq 0$,
+  $(b_1,b_2,a_3,\ldots,a_n)$ is therefore spanning.
+
+  Continuing this reasoning, $(b_1,\ldots,b_n)$ is spanning.
+  $b_{n+1}$ is therefore a linear combination of $b_1, \ldots, b_n$ which is a contradiction.
+\end{solution}
