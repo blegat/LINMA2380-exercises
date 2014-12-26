@@ -513,7 +513,83 @@ Prove that these matrices commute.
 \end{solution}
 
 \subsection*{1.21}
-\nosolution
+\begin{solution}
+  Let's prove it my induction.
+  \begin{itemize}
+    \item If $n = 1$, we have
+      \[
+        \det
+        \begin{pmatrix}
+          1
+        \end{pmatrix}
+        = 1
+      \]
+      and for $n = 2$, we have
+      \[
+        \det
+        \begin{pmatrix}
+          1 & 1\\
+          x_1 & x_2
+        \end{pmatrix}
+        = (x_2 - x_1)
+      \]
+    \item
+      For $i = 1, \ldots, n-1$, replacing the line $i+1$
+      by the line $i+1$ subtracted by $x_n$ times the line $i$
+      does not change the determinant since
+      its an elementary line transformation (property 9.).
+      We have therefore
+      \begin{align*}
+        \det
+        \begin{pmatrix}
+          1 & 1 & \cdots & 1\\
+          x_1 & x_2 & \cdots & x_n\\
+          x_1^2 & x_2^2 & \cdots & x_n^2\\
+          \vdots & \vdots & \ddots & \vdots\\
+          x_1^{n-1} & x_2^{n-1} & \cdots & x_n^{n-1}
+        \end{pmatrix}
+        & =
+        \det
+        \begin{pmatrix}
+          1 & 1 & \cdots & 1\\
+          x_1-x_n & x_2-x_n & \cdots & 0\\
+          x_1^2-x_1x_n & x_2^2 - x_2x_n & \cdots & 0\\
+          \vdots & \vdots & \ddots & \vdots\\
+          x_1^{n-1}-x_1^{n-2}x_n & x_2^{n-1}-x_2^{n-2}x_n & \cdots & 0
+        \end{pmatrix}\\
+        & =
+        \det
+        \begin{pmatrix}
+          1 & 1 & \cdots & 1\\
+          (x_1-x_n) & x_2-x_n & \cdots & 0\\
+          (x_1-x_n)x_1 & (x_2-x_n)x_2 & \cdots & 0\\
+          \vdots & \vdots & \ddots & \vdots\\
+          (x_1-x_n)x_1^{n-2} & (x_2-x_n)x_2^{n-2} & \cdots & 0
+        \end{pmatrix}\\
+        & =
+        (-1)^{n+1}
+        \det
+        \begin{pmatrix}
+          (x_1-x_n) & x_2-x_n & \cdots\\% & x_{n-1}-x_n\\
+          (x_1-x_n)x_1 & (x_2-x_n)x_2 & \cdots\\% & (x_{n-1}-x_n)x_{n-1}\\
+          \vdots & \vdots & \ddots\\% & \vdots\\
+          (x_1-x_n)x_1^{n-2} & (x_2-x_n)x_2^{n-2} & \cdots\\% & (x_{n-1}-x_n)x_{n-1}^{n-2}
+        \end{pmatrix}\\
+        & =
+        (-1)^{n-1} \prod_{j < n} (x_j - x_n)
+        \det
+        \begin{pmatrix}
+          1 & 1 & \cdots & 1\\
+          x_1 & x_2 & \cdots & x_{n-1}\\
+          \vdots & \vdots & \ddots & \vdots\\
+          x_1^{n-2} & x_2^{n-2} & \cdots & x_{n-1}^{n-2}
+        \end{pmatrix}\\
+        & =
+        \left(\prod_{j < i = n} (x_i - x_j)\right)
+        \left(\prod_{j < i < n} (x_i - x_j)\right).
+      \end{align*}
+  \end{itemize}
+\end{solution}
 
 \subsection*{1.22}
 \begin{solution}
