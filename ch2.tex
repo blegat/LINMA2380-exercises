@@ -61,7 +61,34 @@
 \end{solution}
 
 \subsection*{2.5}
-\nosolution
+\begin{solution}
+  Since $\mathbb{C}^{m \times n}$ is a vector space and if $X,Y \in \mathbb{C}^{m \times n}$, $\trace(Y^*X) \in \mathbb{C}$ which is a field,
+  $\trace(Y^*X)$ could be the scalar product $(X,Y)$.
+  Let's check.
+  Since
+  \begin{align*}
+    \trace(X^*X)
+    & = \sum_{i = 1}^m \sum_{j = 1}^n \overline{x_{ij}}x_{ij}\\
+    & = \sum_{i = 1}^m \sum_{j = 1}^n |x_{ij}|^2,
+  \end{align*}
+  we clearly have $\trace(X^*X) \geq 0$ for all $X \in \mathbb{C}^{m \times n}$ and
+  $\trace(X^*X) \Longleftrightarrow X = 0$.
+  We also have
+  \begin{align*}
+    \trace(Z^*(\alpha X + \beta Y))
+    & = \trace(\alpha Z^*X + \beta Z^*Y)\\
+    & = \alpha\trace(Z^*X) + \beta\trace(Z^*Y)\\
+    \trace(Y^*X)
+    & = \trace((X^*Y)^*)\\
+    & = \overline{\trace(X^*Y)}.
+  \end{align*}
+  Since it is a scalar product, we can apply the Schwarz inequality which gives
+  \begin{align*}
+    |\trace(Y^*X)|
+    & \leq \sqrt{\trace(X^*X)} \sqrt{\trace(Y^*Y)}\\
+    & = \|X\|_F \|X\|_F.
+  \end{align*}
+\end{solution}
 
 \subsection*{2.6}
 \nosolution
