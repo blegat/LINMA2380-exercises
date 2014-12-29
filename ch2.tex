@@ -90,47 +90,129 @@
   \end{align*}
 \end{solution}
 
-\exo{6}{0}
-\nosolution
+\exo{6}{1}
+\begin{solution}
+  We have
+  \begin{align*}
+    A^*A
+    & = R^*Q^*QR\\
+    & = R^*IR\\
+    & = R^*R.
+  \end{align*}
 
-\exo{7}{0}
-\nosolution
+  Note that since $A$ is squared
+  (since otherwise it wouldn't be defined for it to be positive definite)
+  and that $A$ is full rank (if not, it has an zero eigenvalue and cannot be positive definite).
+  Therefore $R$ is an upper triangular square matrix with no zero element in this case.
+\end{solution}
 
-\exo{8}{0}
-\nosolution
+\exo{7}{2}
+\begin{solution}
+  \begin{description}
+    \item[$\Rightarrow$]
+      It must be true $\forall x \in \mathcal{X}$ and $\forall y \in \mathcal{Y}$ so in particular,
+      it should be true for every element of the base.
+      So we need to have $(x_i,y_j) = 0$ for all $i,j$ so in other words
+      \[
+        \begin{pmatrix}
+          y_1 & y_2 & \cdots & y_n
+        \end{pmatrix}^*
+        \begin{pmatrix}
+          x_1 & x_2 & \cdots & x_n
+        \end{pmatrix}
+        = 0.
+      \]
+    \item[$\Leftarrow$]
+      Let $\sum a_ix_i$ be an element of $\mathcal{X}$ and $\sum b_iy_i$ be an element of $\mathcal{Y}$.
+      We need
+      \begin{align*}
+        (\sum_i a_ix_i, \sum_i b_iy_i)
+        & = \sum_i a_i (x_i, \sum_j b_jy_j)\\
+        & = \sum_i a_i \overline{(\sum_j b_jy_j, x_i)}\\
+        & = \sum_i \sum_j a_i\overline{b_j} \overline{(y_j, x_i)}\\
+        & = \sum_i \sum_j a_i\overline{b_j} (x_i, y_j)\\
+        & = \sum_i \sum_j a_i \overline{b_j} 0\\
+        & = 0.
+      \end{align*}
+  \end{description}
+\end{solution}
+
+\exo{8}{3}
+\begin{solution}
+  \begin{enumerate}
+    \item
+      \begin{align*}
+        (S^\perp)^\perp
+        & = \{x | (x,y) = 0, \forall y \in \mathcal{S}^\perp\}\\
+        & = \{x | (x,y) = 0, \forall y \in \{z | (z,w) = 0, \forall w \in \mathcal{S}\}\}.
+      \end{align*}
+      In other word, $x$ should be perpendicular to every vector which is perpendicular to all vectors of $\mathcal{S}$.
+      This is clearly true for $x \in \mathcal{S}$.
+      If $x \notin \mathcal{S}$, since it is perpendicular to every vector of $\mathcal{S}^\perp$, $x \notin \mathcal{S}^\perp$,
+      this contradicts the lemma~2.8.
+    \item
+      \begin{align*}
+        (\mathcal{S}_1 + \mathcal{S}_2)^\perp
+        & = \{x | (x,y) = 0, \forall y \in (\mathcal{S}_1+\mathcal{S}_2)\}\\
+        & = \{x | (x,\alpha y_1 + \beta y_2) = 0, \forall \alpha,\beta, \forall y_1 \in \mathcal{S}_1, \forall y_2 \in \mathcal{S}_2\}\\
+        & = \{x | ((x, y_1) = 0, \forall y_1 \in \mathcal{S}_1) \land ((x, y_2) = 0, \forall y_2 \in \mathcal{S}_2)\}\\
+        & = \{x | (x, y_1) = 0, \forall y_1 \in \mathcal{S}_1\} \cap \{x | (x, y_2) = 0, \forall y_2 \in \mathcal{S}_2\}\\
+        & = \mathcal{S}_1^\perp \cap \mathcal{S}_2^\perp.
+      \end{align*}
+    \item
+      $(\mathcal{S}^\perp)^\perp$ actually ensures us that
+      2 subspaces are equal iff their orthogonal complements are equal.
+      If they are equal, it is obvious that their complement is equal
+      and if their complement is equal, the complement of their complement is equal so their are equal.
+
+      We can therefore prove that the complements are equals
+      \begin{align*}
+        ((\mathcal{S}_1 \cap \mathcal{S}_2)^\perp)^\perp
+        & = (\mathcal{S}_1^\perp + \mathcal{S}_2^\perp)^\perp\\
+        \mathcal{S}_1 \cap \mathcal{S}_2
+        & = (\mathcal{S}_1^\perp + \mathcal{S}_2^\perp)^\perp
+      \end{align*}
+      Using the previous property, we have
+      \begin{align*}
+        (\mathcal{S}_1^\perp + \mathcal{S}_2^\perp)^\perp
+        & = (\mathcal{S}_1^\perp)^\perp \cap (\mathcal{S}_2^\perp)^\perp\\
+        & = \mathcal{S}_1 \cap \mathcal{S}_2.
+      \end{align*}
+  \end{enumerate}
+\end{solution}
 
 \exo{9}{0}
 \nosolution
 
-\subsection*{2.10}
+\exo{10}{0}
 \nosolution
 
-\subsection*{2.11}
+\exo{11}{0}
 \nosolution
 
-\subsection*{2.12}
+\exo{12}{0}
 \nosolution
 
-\subsection*{2.13}
+\exo{13}{0}
 \nosolution
 
-\subsection*{2.14}
+\exo{14}{0}
 \nosolution
 
-\subsection*{2.15}
+\exo{15}{0}
 \nosolution
 
-\subsection*{2.16}
+\exo{16}{0}
 \nosolution
 
-\subsection*{2.17}
+\exo{17}{0}
 \nosolution
 
-\subsection*{2.18}
+\exo{18}{0}
 \nosolution
 
-\subsection*{2.19}
+\exo{19}{0}
 \nosolution
 
-\subsection*{2.20}
+\exo{20}{0}
 \nosolution
