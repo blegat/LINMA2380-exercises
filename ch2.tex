@@ -19,6 +19,7 @@
 \begin{solution}
   Let's suppose by contradiction that there are 2 ways
   to do this
+
   \begin{align}
     \label{eq:2.3.1}
     \mathbf{x} & = \sum_{i=1}^k \alpha_i \mathbf{a}_i\\
@@ -66,6 +67,7 @@
   $\trace(Y^*X)$ could be the scalar product $(X,Y)$.
   Let's check.
   Since
+
   \begin{align*}
     \trace(X^*X)
     & = \sum_{i = 1}^m \sum_{j = 1}^n \overline{x_{ij}}x_{ij}\\
@@ -74,6 +76,7 @@
   we clearly have $\trace(X^*X) \geq 0$ for all $X \in \mathbb{C}^{m \times n}$ and
   $\trace(X^*X) \Longleftrightarrow X = 0$.
   We also have
+
   \begin{align*}
     \trace(Z^*(\alpha X + \beta Y))
     & = \trace(\alpha Z^*X + \beta Z^*Y)\\
@@ -83,6 +86,7 @@
     & = \overline{\trace(X^*Y)}.
   \end{align*}
   Since it is a scalar product, we can apply the Schwarz inequality which gives
+
   \begin{align*}
     |\trace(Y^*X)|
     & \leq \sqrt{\trace(X^*X)} \sqrt{\trace(Y^*Y)}\\
@@ -93,6 +97,7 @@
 \exo{6}{1}
 \begin{solution}
   We have
+
   \begin{align*}
     A^*A
     & = R^*Q^*QR\\
@@ -125,6 +130,7 @@
     \item[$\Leftarrow$]
       Let $\sum a_ix_i$ be an element of $\mathcal{X}$ and $\sum b_iy_i$ be an element of $\mathcal{Y}$.
       We need
+
       \begin{align*}
         (\sum_i a_ix_i, \sum_i b_iy_i)
         & = \sum_i a_i (x_i, \sum_j b_jy_j)\\
@@ -166,6 +172,7 @@
       and if their complement is equal, the complement of their complement is equal so their are equal.
 
       We can therefore prove that the complements are equals
+
       \begin{align*}
         ((\mathcal{S}_1 \cap \mathcal{S}_2)^\perp)^\perp
         & = (\mathcal{S}_1^\perp + \mathcal{S}_2^\perp)^\perp\\
@@ -173,6 +180,7 @@
         & = (\mathcal{S}_1^\perp + \mathcal{S}_2^\perp)^\perp
       \end{align*}
       Using the previous property, we have
+
       \begin{align*}
         (\mathcal{S}_1^\perp + \mathcal{S}_2^\perp)^\perp
         & = (\mathcal{S}_1^\perp)^\perp \cap (\mathcal{S}_2^\perp)^\perp\\
@@ -195,6 +203,7 @@
   $U_{up}$ must therefore be diagonal.
   However it also needs to be hermitian for $UU_{up}$ to be hermitian.
   Indeed, we need to have
+
   \begin{align*}
     UU_{up} U_{up}^*U^* & = I\\
     U_{up} U_{up}^* & = U^*U\\
@@ -207,10 +216,11 @@
 \exo{10}{4}
 \begin{solution}
   \emph{Hint:}
-  Use the property $\trace(A_1A_2 \cdots A_n) = \trace(A_2 \cdots A_nA_1)$.
+  Use the property $\trace(AB) = \trace(BA)$.
 
   Since $H$ is hermitian, there is an unitary $U$ and diagonal $\Lambda$ such that $H = U \Lambda U^*$.
   Let's first analyse the RHS
+
   \begin{align*}
     \trace(H) & = \trace(U \Lambda U^*)\\
               & = \trace(\Lambda U^*U)\\
@@ -220,6 +230,7 @@
   For the LHS, we first need to analyse $Q$.
   It is unitary so its eigenvalues are on the unit circles therefore $|x^* Q x| \leq 1$ for all $x$.
   Using the triangle inequation and the fact that the $\lambda_i$ are positive
+
   \begin{align*}
     \trace(HQ)
     & = \trace(U \Lambda U^* Q)\\
@@ -294,23 +305,106 @@
   \end{itemize}
 \end{solution}
 
-\exo{12}{0}
-\nosolution
+\exo{12}{3}
+\begin{solution}
+  \emph{Hint} Use the property $\|A\|_F = \trace(A^TA) = \trace(AA^T)$ and the property $\trace(AB) = \trace(BA)$.
 
-\exo{13}{0}
-\nosolution
+  We have (also using $\trace(A^T) = \trace(A)$).
 
-\exo{14}{0}
-\nosolution
+  \begin{align*}
+    \|AQ^T - B\|_F^2
+    & = \trace((AQ^T - B)(AQ^T - B)^T)\\
+    & = \trace((AQ^T - B)(QA^T - B^T))\\
+    & = \trace(AQ^TQA^T) + \trace(BB^T) - \trace(AQ^TB^T) - \trace(BQA^T)\\
+    & = \trace(AQ^TQA^T) + \trace(BB^T) - \trace(AQ^TB^T) - \trace(BQA^T)\\
+    & = \trace(AA^T) + \trace(BB^T) - \trace(B^TAQ^T) - \trace(QA^TB)\\
+    & = \|A\|_F + \|B\|_F - \trace(B^TAQ^T) - \trace(B^TAQ^T)\\
+    & = \|A\|_F + \|B\|_F - 2\trace(B^TAQ^T)\\
+    & = \|A\|_F + \|B\|_F - 2\trace(\tilde{H}\tilde{Q} Q^T)\\
+    & \geq \|A\|_F + \|B\|_F - 2\trace(\tilde{H})
+  \end{align*}
+  using exercise~2.10 since $\tilde{Q}Q^T$ is unitary and $\tilde{A}$ is hermitian positive semi-definite.
+  However, taking $Q = \tilde{Q}$, we have the equality. It is therefore optimal.
+\end{solution}
 
-\exo{15}{0}
-\nosolution
+\exo{13}{2}
+\begin{solution}
+  Let $\mathcal{S}_1$ of dimension $m$ and $\mathcal{S}_2$ of dimension $n < m$.
+  We can have $n$ canonical angles using
 
-\exo{16}{0}
-\nosolution
+  \begin{align*}
+    S_1^*S_2
+    & = U_1
+    \begin{pmatrix}
+      \Sigma\\0
+    \end{pmatrix}
+    U_2^*\\
+    & =
+    \begin{pmatrix}
+      U_{1,1} & U_{1,2}
+    \end{pmatrix}
+    \begin{pmatrix}
+      \Sigma\\0
+    \end{pmatrix}
+    U_2\\
+    & = U_{1,1} \Sigma U_2
+  \end{align*}
+  $\Sigma = \cos(\Theta)$ where the $\theta_i$ are the angles between the $n$ vectors of $S_1U_{1,1}$
+  and the $n$ vectors of $S_2U_2$.
+\end{solution}
 
-\exo{17}{0}
-\nosolution
+\exo{14}{2}
+\begin{solution}
+  See syllabus.
+\end{solution}
+
+\exo{15}{2}
+\begin{solution}
+  See syllabus.
+\end{solution}
+
+\exo{16}{2}
+\begin{solution}
+  \begin{itemize}
+    \item
+      \begin{align*}
+        AXAX
+        & = (AXA)X\\
+        & = AX.
+      \end{align*}
+    \item
+      $AX$ is a projector since (1) is satisfied.
+
+      From the theorem~2.18, $\Ker(AX) = \Im((AX)^*)^\perp$.
+      Therefore we can just show that $\Im((AX)^*) = \Im(AX)$ which is obvious
+      since (3) is satisfied.
+    \item
+      \begin{align*}
+        XAXA
+        & = (XAX)A\\
+        & = XA.
+      \end{align*}
+    \item
+      $XA$ is a projector since (1) is satisfied.
+
+      From the theorem~2.18, $\Ker(XA) = \Im((XA)^*)^\perp$.
+      Therefore we can just show that $\Im((XA)^*) = \Im(XA)$ which is obvious
+      since (4) is satisfied.
+  \end{itemize}
+\end{solution}
+
+\exo{17}{3}
+\begin{solution}
+  See syllabus.
+
+  If $P$ is orthogonal, we have
+  \begin{align*}
+    PP & = P\\
+    PPP^* & = PP^*\\
+    P & = PP^*
+  \end{align*}
+  and $P^*P = I$.
+\end{solution}
 
 \exo{18}{0}
 \nosolution
