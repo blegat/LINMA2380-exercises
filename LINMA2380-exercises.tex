@@ -7,6 +7,7 @@
 \usepackage{amsfonts}
 \usepackage{amsthm}
 \usepackage{verbatim}
+\usepackage{forloop}
 
 \usepackage{ifthen}
 \usepackage[framemethod=tikz]{mdframed}
@@ -40,6 +41,9 @@
 \DeclareMathOperator{\Ker}{Ker}
 \DeclareMathOperator{\Ima}{Im}
 \DeclareMathOperator{\trace}{trace}
+
+\newcounter{stars}
+\newcommand{\exo}[2]{\subsection*{\thesection.#1 \forloop{stars}{0}{\value{stars} < #2}{\LARGE$\star$}}}
 
 \usepackage{url}
 \newcommand{\nosolution}
