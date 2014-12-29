@@ -181,14 +181,118 @@
   \end{enumerate}
 \end{solution}
 
-\exo{9}{0}
-\nosolution
+\exo{9}{2}
+\begin{solution}
+  Let $U_{up} = [u_{ij}]_{i,j=1}^{n,n}$.
+  We must have
+  \[ U_{up}\Lambda = \Lambda U_{up}. \]
+  At the elements $i,j$, we have
+  \[ u_{ij} \lambda_j = \lambda_i u_{ij} \]
+  or
+  \[ u_{ij} (\lambda_j - \lambda_i) = 0. \]
+  If $i \neq j$, this means that $u_{ij} = 0$ since $\lambda_j - \lambda_i \neq 0$.
 
-\exo{10}{0}
-\nosolution
+  $U_{up}$ must therefore be diagonal.
+  However it also needs to be hermitian for $UU_{up}$ to be hermitian.
+  Indeed, we need to have
+  \begin{align*}
+    UU_{up} U_{up}^*U^* & = I\\
+    U_{up} U_{up}^* & = U^*U\\
+    U_{up} U_{up}^* & = I.
+  \end{align*}
+  This means that we need to have $1 = u_{ii}\overline{u_{ii}} = |u_{ii}|^2$
+  so $u_{ii}$ is on the unit circle.
+\end{solution}
 
-\exo{11}{0}
-\nosolution
+\exo{10}{4}
+\begin{solution}
+  \emph{Hint:}
+  Use the property $\trace(A_1A_2 \cdots A_n) = \trace(A_2 \cdots A_nA_1)$.
+
+  Since $H$ is hermitian, there is an unitary $U$ and diagonal $\Lambda$ such that $H = U \Lambda U^*$.
+  Let's first analyse the RHS
+  \begin{align*}
+    \trace(H) & = \trace(U \Lambda U^*)\\
+              & = \trace(\Lambda U^*U)\\
+              & = \trace(\Lambda)\\
+              & = \sum_{i=1}^n \lambda_i.
+  \end{align*}
+  For the LHS, we first need to analyse $Q$.
+  It is unitary so its eigenvalues are on the unit circles therefore $|x^* Q x| \leq 1$ for all $x$.
+  Using the triangle inequation and the fact that the $\lambda_i$ are positive
+  \begin{align*}
+    \trace(HQ)
+    & = \trace(U \Lambda U^* Q)\\
+    & = \trace(\Lambda U^* Q U)\\
+    & = \sum_{i=1}^n \lambda_i u_{:i}^* Q u_{:i}\\
+    & \leq \left|\sum_{i=1}^n \lambda_i u_{:i}^* Q u_{:i}\right|\\
+    & \leq \sum_{i=1}^n |\lambda_i| \cdot |u_{:i}^* Q u_{:i}|\\
+    & = \sum_{i=1}^n \lambda_i |u_{:i}^* Q u_{:i}|\\
+    & \leq \sum_{i=1}^n \lambda_i.
+  \end{align*}
+\end{solution}
+
+\exo{11}{3}
+\begin{solution}
+  If $A$ is $m \times n$, then $H$ is $m \times r$ and $Q$ is $r \times n$ for some $r$.
+  We want $H$ to be positive definite so we need $H$ to be squared for it to be defined.
+  That means that $Q$ is $m \times n$.
+
+  The problem with the proof when $m \neq n$ is that we cannot say
+  $U \Sigma V^* = U \Sigma U^* U V^*$ since the product is not defined because $U$ is $m \times m$
+  and $V$ is $n \times n$.
+  \begin{itemize}
+    \item If $m < n$, we have
+      \begin{align*}
+        A
+        & = U
+        \begin{pmatrix}
+          \Sigma & 0
+        \end{pmatrix}
+        \begin{pmatrix}
+          V_1 & V_2
+        \end{pmatrix}^*\\
+        & = U \Sigma V_1^*\\
+        & = (U \Sigma U^*) (U V_1^*)
+      \end{align*}
+      with $V_1^*V_1 = I$ (but not $V_1V_1^* = I$, since $I$ is full rank and $V_1$ is not full column rank)
+      since
+      \begin{align*}
+        I
+        & =
+        \begin{pmatrix}
+          V_1 & V_2
+        \end{pmatrix}^*
+        \begin{pmatrix}
+          V_1 & V_2
+        \end{pmatrix}\\
+        & =
+        \begin{pmatrix}
+          V_1^*V_1 & V_1^*V_2\\
+          V_2^*V_1 & V_2^*V_2
+        \end{pmatrix}
+      \end{align*}
+
+      Therefore $QQ^* = (U V_1^*) (U V_1)^* = I$ but $Q^*Q = (U V_1^*)^* (U V_1^*) = V_1V_1^* \neq I$.
+    \item If $m > n$, we have
+      \begin{align*}
+        A
+        & =
+        \begin{pmatrix}
+          U_1 & U_2
+        \end{pmatrix}
+        \begin{pmatrix}
+          \Sigma \\ 0
+        \end{pmatrix}
+        V^*\\
+        & = U_1 \Sigma V^*\\
+        & = (U_1 \Sigma U_1^*) (U_1 V_1^*)
+      \end{align*}
+      with $U_1^*U_1 = I$ but not $U_1U_1^* = I$ like for the previous point.
+
+      This time it's $Q^*Q = I$ and $QQ^* = I$.
+  \end{itemize}
+\end{solution}
 
 \exo{12}{0}
 \nosolution
