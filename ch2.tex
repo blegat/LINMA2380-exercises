@@ -412,5 +412,12 @@
 \exo{19}{0}
 \nosolution
 
-\exo{20}{0}
-\nosolution
+\exo{20}{3}
+\begin{solution}
+  For $s_i \in [\sigma_i - \sigma_{s+1}(A), \sigma_i + \sigma_{s+1}(A)]$ for $i = 1, \ldots, s$,
+  and
+  \[ b = \sum_{i=1}^s u_i s_i v_i^T, \]
+  we have
+  \[ A - B = \sum_{i=1}^s u_i(\sigma_i - s_i)v_i^T + \sum_{i=s+1}^r u_i\sigma_iv_i^T. \]
+  which also has its maximum singular value equal to $\sigma_{s+1}(A)$ by definition of the $s_i$.
+\end{solution}
