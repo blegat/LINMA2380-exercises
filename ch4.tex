@@ -100,19 +100,29 @@
     U_AA_S\tilde{X}U_B^* + U_A\tilde{X}B_sU_B^* & = U_A\tilde{C}U_B^*\\
     A_S\tilde{X} + \tilde{X}B_s & = \tilde{C}\\
   \end{align*}
-  Using $\vec(BPA) = (A^T \otimes B) \vec(P)$, we have
+  Using $\vect(BPA) = (A^T \otimes B) \vect(P)$, we have
   \begin{align*}
-    \vec(A_s\tilde{X} + \tilde{X}B_S) & = \vec(\tilde{C})\\
-    \vec(A_s\tilde{X}I_n) + \vec(I_n\tilde{X}B_S) & = \vec(\tilde{C})\\
-    (I_n \otimes A_s) \vec(X) + (B_S^T \otimes I_n) \vec(\tilde{X}) & = \vec(\tilde{C})\\
-    (I_n \otimes A_s + B_S^T \otimes I_n) \vec(\tilde{X}) & = \vec(\tilde{C})
+    \vect(A_s\tilde{X} + \tilde{X}B_S) & = \vect(\tilde{C})\\
+    \vect(A_s\tilde{X}I_n) + \vect(I_n\tilde{X}B_S) & = \vect(\tilde{C})\\
+    (I_n \otimes A_s) \vect(X) + (B_S^T \otimes I_n) \vect(\tilde{X}) & = \vect(\tilde{C})\\
+    (I_n \otimes A_s + B_S^T \otimes I_n) \vect(\tilde{X}) & = \vect(\tilde{C})
   \end{align*}
   where $(I_n \otimes A_s + B_S^T \otimes I_n)$ is upper diagonal
   since $A_s$ and $B_S^T$ are upper diagonal.
 \end{solution}
 
-\exo{4}{0}
-\nosolution
+\exo{4}{2}
+\begin{solution}
+  For 4.7, let
+  \[ \lambda = \argmin_{\lambda^* = j\omega} \sigma_{\mathrm{min}}(A - \lambda^*I). \]
+  Let $C = A - \lambda I$.
+  If $C = U^* \Sigma V$, we can take $\Delta = -u_n \sigma_n v_n^*$ which gives
+  \[ C + \Delta = A - \lambda I + \Delta = (A + \Delta) - \lambda I \]
+  of rank $n-1$.
+
+  For 4.8, it is the same except that we take
+  \[ \lambda = \argmin_{\lambda^* = \exp(j\omega)} \sigma_{\mathrm{min}}(A - \lambda^*I). \]
+\end{solution}
 
 \exo{5}{0}
 \nosolution
