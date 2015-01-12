@@ -69,6 +69,16 @@
 \exo{7}{2}
 \begin{solution}
   See syllabus.
+
+  \begin{align*}
+    \sum_{i=0}^\infty \frac{(A+B)^i}{i!}
+    & = \sum_{i=0}^\infty \frac{\sum_{k=0}^i \frac{i!}{k!(i-k)!} A^{i-k}B^k}{i!}\\
+    & = \sum_{i=0}^\infty \sum_{k=0}^i \frac{A^{i-k}}{(i-k)!} \frac{B^k}{k!}\\
+    & =
+    \left(\sum_{i=0}^\infty \frac{A^i}{i!}\right)
+    \left(\sum_{i=0}^\infty \frac{B^i}{i!}\right).
+  \end{align*}
+  because each term $A^aB^b$ is present with the term $\frac{1}{a!b!}$.
 \end{solution}
 
 \exo{8}{1}
