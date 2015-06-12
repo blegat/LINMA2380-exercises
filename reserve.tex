@@ -1,0 +1,167 @@
+\section{EXERCICE DOCUMENT}
+
+\subsection*{Exercice 1}
+\begin{itemize}
+\item On prend une matrice :
+$\begin{pmatrix}
+In & B\\ 0&  In \\
+\end{pmatrix}$
+Son détemrinant vaut 1: produit des éléments de la diagonale.
+Si on la multiplie par la matrice à gauche du égale, ça donne la matrice à droite.
+Or on sait que det(XY)=det(X)det(Y).
+On a donc bien prouvé la première égalité.
+(Néanmoins, cela utilise la propriété de det(XY)=det(X)det(Y), qu'il veut qu'on démontre juste en dessous; ça doit être possible en utilisant la bilinéarité)
+\\20:06:54] Michael Azzam: la matrice de gauche
+ [20:07:05] Michael Azzam: si tu sépares en C1|C2
+ [20:07:20] Michael Azzam: (donc C1 = [A ; -I] et C2 = [0; B])
+ [20:07:26] Michael Azzam: alors pour aller de gauche à droite
+ [20:07:34] Michael Azzam: tu fais C2 -> C2 + C1 B
+ [20:07:56] Michael Azzam: par propriété 9, le déterminant change pas
+ [20:08:07] Michael Azzam: vu que c'est la colonne elle-même plus combili d'autres colonnes
+\item
+\end{itemize}
+\subsection*{Exercice 2}
+
+
+Les matrices de Toeplitz doivent vérifier 3 propriétés pour être un sous-espace linéaire de dim n de l'espace des matrices carrées. Soit $\mathbb{T}^n$ l'espace des matrices de Toeplitz de degré $n$:
+
+\renewcommand{\labelitemi}{$\surd$}
+\begin{itemize}
+\item $\mathbb{T}^n \subset \mathbb{C}^{n\times n} \rightarrow$ OK
+\item $0 \in \mathbb{C}^{n\times n}$ : Trivial
+\item $\forall x,y \in \mathbb{T}^n,\  \alpha,\beta \in \mathbb{R}$,   $\alpha x + \beta y \in \mathbb{T}^n \rightarrow$ OK\\
+\end{itemize}
++ Rajouter que matrice de rang plein?
+Pas trop difficile comme exo :)
+
+\subsection*{Exercice 3}
+C'est marqué qu'il faut pas le faire dans la matière. C'est expliqué transparent 15.
+
+\subsection*{Exercice 4}
+\begin{proof}
+Par transformations élémentaire ou inversibles, on obtiens
+\begin{equation}
+\begin{bmatrix}
+I-n & 0 \\
+-CA^{-1} & I-p
+\end{bmatrix}
+\begin{bmatrix}
+A & B \\
+C & D
+\end{bmatrix}
+\begin{bmatrix}
+I_n & -A^{-1}B \\
+0 & I_m
+\end{bmatrix}
+=
+\begin{bmatrix}
+A & 0 \\
+0 & D-CA^{-1}B
+\end{bmatrix}
+\end{equation}
+Le rand de $M$ est alors égal à
+$$\text{rang} \ M = n + \text{rang} (D-CA^{-1}B)$$
+\end{proof}
+
+\subsection*{Exercice 5}
+
+Si l'on utilise les cofacteurs de la dernière ligne, le résultat est direct. Le mineur accompagnant $\lambda I_p + A_{n-1}$ vaut $\lambda^{n-1}I_p$. Le mineur accompagnant $A_{n-2}$ vaut $-\lambda^{n-2}I_p$. Pour $A_{n-3}$, on a $\lambda^{n-3}I_p$ et ainsi de suite. Nous obtenons donc
+$$ det(A_0(I_p) - A_1(-\lambda I_p) + ... - A_{n-2}( -\lambda^{n-2}) + A_{n-1}\lambda^{n-1} + I_p\lambda^n)$$
+Qui équivaut au résultat escompté.
+\subsection*{Exercice 6 (TUYAU avait il dit ! Toujours un des trois ... ) }
+\begin{itemize}
+\item
+\item Trouvée sur le net, la flemme de traduire pour le moment :-)
+let x be in C(U+V). then for all y in (U+V), <x,y> = 0.
+in particular, let u be in U. Then <x,u> = 0, and x is in C(U)
+analagously, let c be in V. Then <x,v> = 0, and x is in C(V),
+therefore C(U+V) subset of C(U) intersect C(V)
+
+now let y be in C(U) intersect C(V). let z be in U+V. then z can be written as au + bv for scalars a,b, u in U, and v in V
+<y,z> = a<y,u> + b<y,z>. By hypothesis, both dot products are 0, and therefore <y,z> = 0. So C(U) intersect C(V) is a subset of C(U+V). qed
+\item
+Si $x\in C(S_1)+C(S_2)$, alors on peut le décomposer comme $x=x_1+x_2$, qui appartiennent aux deux ensembles précités. Si on prend un $y\in (S_1\cap S_2)$, on fait le produit scalaire avec $x$: $ (x_1,y)+(x_2,y)=0$, $x$ appartient donc bien à $C(S_1 \cap S_2)$.
+Autre sens ça par compte, pas encore réussi
+\end{itemize}
+\subsection*{Exercice 7}
+Déjà, on vérifie les dimensions des bases !
+\begin{itemize}
+\item on applique Lemme 2.16 et on trouve des 1 comme valeur singuliere de $\Sigma$, ou theoreme 2.15 et on trouve des 1 sur la diag...?
+\item
+\item On applique lemme 2.16, et si on trouve que $\Sigma$ est la matrice nulle ça fait caisse ? Vu ce qui est marqué juste en dessous page 33, SVD mesure les correlations canoniques, donc ça semble plausible
+\end{itemize}
+\subsection*{Exercice 8}
+
+
+\subsection*{Exercice 9}
+A mon avis, il faudrait compléter la base de l'espace de dimension la plus petite, en ajoutant des colonnes linéairement indépendantes, mais orientés dans les mêmes directions que les vecteurs de la base de plus grande dimension qui sont orthogonaux aux vecteurs de la première base. Les $\sigma_i$ des directions pour les composantes ajoutées, vaudront 1.
+
+\subsection*{Exercice 10}
+Raisonnement page 35.\\
+Pour la norme 2, on part du fait que la norme 2 d'un vecteur est unitairement invariante.
+$$ ||Ux||_2 = (x^*U^*Ux)^{1/2} = (x^*x)^{1/2} = ||x||_2$$
+On a donc pour le cas matriciel, avec $Vx = y$:
+$$
+||U^*AV||_2 = \sup_{x\neq 0}\frac{||U^*AVx||_2}{||x||_2} = \sup_{y\neq 0}\frac{||U^*Ay||_2}{||V*y||_2} = \sup_{y\neq 0}\frac{||Ay||_2}{||y||_2}$$
+Pour la norme de Frobenius, on voit que
+$$ ||A||_F = \left(\sum_j ||a_{:j}||^2_2\right)^{1/2} = \left(\sum_i ||a_{i:}||^2_2\right)^{1/2}$$
+On voit aisément que $||A||_F = ||U^*A||_F = ||AV||_F$, ce qui achève la preuve.
+
+\subsection*{Exercice 11}
+Raisonnement page 33 du syllabus. On effectue la décomposition QR de $X$ et $Y$. $X = Q_xR_x$ et $Y = Q_y R_y$ Ensuite on fait la décomposition SVD de $Q_x^* Q_y$:
+$$ U_x^* Q_x^* Q^y U_y = \Sigma$$
+Et les choix $T_x = R_x^{-1}U_x$ et $T_y = R_y^{-1}U_y$ amènent au résultat désiré.
+
+\subsection*{Exercice 12}
+
+La matrice $T_i$ est hermitienne. Dès lors, avec le Corollaire de la page 84 est d'action et la preuve est facile. Si l'on considère la matrice $T_i$ et $\hat{T}=T_i$ à laquelle on a enlevé la dernière ligne et la dernière colonne. On remarque que $\hat{T} = T_{i-1}$. Le corollaire dit que les valeurs propres ordonnées des matrices $T$ et $\hat{T}$ s'entrelacent. D'autre part, les polynômes caractéristiques des deux matrices considérées sont consécutifs dans la récurrence donnée. Tadaaam.
+\subsection*{Exercice 13}
+Q unitaire implique Q normal implique décomposition en valeurs propres diagonales $Q = U\Lambda U^*$. On a que $\Lambda^*\Lambda = I$ et donc $\Lambda = diag\{e^{j\phi_1},\dots,e^{j\phi_n}\}$. Dès lors, on a $\Delta = e^{j\Phi}$ et $Q = Ue^{j\Phi}U^* = e^{jU\Phi U^*} = e^{jH}$
+\subsection*{Exercice 14}
+On note que
+$$ e^A = \sum_{i=0}^{\infty} \frac{A^i}{i!}$$
+Donc
+$$ e^A e^B = \left(\sum_{i=0}^{\infty} \frac{A^i}{i!}\right)\left(\sum_{i=0}^{\infty} \frac{B^i}{i!}\right) = \sum_{i=0}^{\infty} \frac{(A+B)^i}{i!}$$ seulement si la formule de Newton est vérifiée pour des matrice, c'est-à-dire que $A$ et $B$ commutent.
+\subsection*{Exercice 15}
+\subsection*{Exercice 16}
+
+\subsection*{Exercice 17}
+On sait que
+$$ \text{vec}(BPA) = (A^T \otimes B)\text{vec}(B)$$
+On a donc $\text{vec}(AXE) + \text{vec}(FXB) = \text{vec}(C)$, ce qui nous donne le système linéaire
+$$ (E^T\otimes A + B^T\otimes F )\text{vec}(X)  = \text{vec}(C)$$
+
+Conditions sur la solubilité du systèmes? Je dirais que $ (E^T\otimes A + B^T\otimes F)$ doit être de plein rang, et carré pour avoir une solution unique. Sinon, la solution optimale aux sens des moindres carrés se calcule avec l'inverse généralisé.
+\subsection*{Exercice 18}
+\subsection*{Exercice 19}
+On a que
+$$ (I+A)^2 =\begin{bmatrix}
+1 & 1 & 2 \\
+2 & 1 & 1 \\
+1 & 2 & 1
+\end{bmatrix} >0$$
+\subsection*{Exercice 20}
+Raisonnement  page 110 :)
+\subsection*{Exercice 21}
+\subsection*{Exercice 22}
+Si A est orthogonale $\rightarrow A^TA = I$\\
+
+Si A est symétrique $\rightarrow A^T = A$\\
+
+On a donc $AA = I$. L'ensemble des matrices réelles orthogonales et symétriques sont donc des matrices involutives.
+
+\subsection*{Exercice 23}
+\subsection*{Exercice 24}
+\subsection*{Exercice 25}
+\subsection*{Exercice 26}
+$[ \overline{c} \text{     } \overline{s}; -s \text{     }  c]$
+%http://mathforum.org/kb/thread.jspa?threadID=55196&messageID=211139 mais pas fort compris
+\subsection*{Exercice 27}
+Remplacer les transposes par des *
+\subsection*{Exercice 28}
+\subsection*{Exercice 29}
+\subsection*{Exercice 30}
+\subsection*{Exercice 31}
+\subsection*{Exercice 32}
+\subsection*{Exercice 33}
+Une matrice carrée à coefficients dans un anneau commutatif est inversible, possède une matrice inverse dans cet anneau, si et seulement si son déterminant est inversible dans cet anneau. A inversible $\Rightarrow det(A)det(A^-1) = 1$. Cela implique qu'une matrice carrée à coefficients entiers est inversible si et seulement si son déterminant vaut 1 ou -1.
